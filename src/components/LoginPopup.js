@@ -1,6 +1,8 @@
 import React from "react";
 import Login from "./login";
 import logoautobanking from '../asset/media/images/text.png'
+import Version from "./version";
+import '../style/loginPopup.css';
 
 class LoginPopup extends React.Component {
     render() {
@@ -8,24 +10,21 @@ class LoginPopup extends React.Component {
             <div className="login-popup">
                 <div className="login-popup-wrapper">
                     <div className='bankLoginForm'>         
-                        <h1 id="head-effect-1" className="header-effect">Chào mừng các bạn</h1>
-                        <h1 id="head-effect-2" className="header-effect">Hệ thống AutoBanking</h1>
-                        <h1 id="head-effect-3" className="header-effect">JUN88 AutoBanking</h1>
+                        <h1 id="head-effect-1" className="header-effect">Welcome</h1>
+                        <h1 id="head-effect-2" className="header-effect">Hệ thống chuyển khoản tự động</h1>
+                        <h1 id="head-effect-3" className="header-effect">789BET AutoBanking</h1>
                         <div className="formField">
-                            <input type={'text'} id='bankUsername' autoComplete={false} placeholder="Tên đăng nhập"></input>
+                            <input type={'text'} id='bankUsername' au placeholder="Tên đăng nhập"></input>
                         </div>
                         <div className="formField">
-                            <input type={'password'} id='bankPassword' autoComplete={false} placeholder="Mật khẩu"></input>
+                            <input type={'password'} id='bankPassword' placeholder="Mật khẩu"></input>
                         </div>        
                         <Login />
                         <button id="loginBtn" className="btn-submit">
                             Đăng nhập
                         </button>
                         <img src={logoautobanking}></img>
-                        <div className='app-ver'>
-                            <p>Version 1.2.1</p>
-                            <i>JUN88 AutoBanking, Reserved</i>
-                        </div>
+                        <Version />
                     </div>
                         
                 </div>        
