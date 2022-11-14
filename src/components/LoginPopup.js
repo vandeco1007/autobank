@@ -14,7 +14,7 @@ class LoginPopup extends React.Component {
                         <h1 id="head-effect-2" className="header-effect">Hệ thống chuyển khoản tự động</h1>
                         <h1 id="head-effect-3" className="header-effect">789BET AutoBanking</h1>
                         <div className="formField">
-                            <input type={'text'} id='bankUsername' au placeholder="Tên đăng nhập"></input>
+                            <input type={'text'} id='bankUsername' placeholder="Tên đăng nhập"></input>
                         </div>
                         <div className="formField">
                             <input type={'password'} id='bankPassword' placeholder="Mật khẩu"></input>
