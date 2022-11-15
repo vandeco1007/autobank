@@ -10,6 +10,7 @@ import iconchuyenkhoan from '../asset/media/images/icons/iconchuyenkhoan.svg'
 import iconthongke from '../asset/media/images/icons/iconthongke.svg'
 import systemSetup from '../controllers/systemInfo.controller'
 import { useEffect, useState } from 'react'
+import Version from './version'
 
 const Sidebar = ()=>{
   const [user, setUser] = useState(0)
@@ -57,71 +58,38 @@ const Sidebar = ()=>{
           </div>          
         </div>
         <div className='bank-title'>Ngân hàng</div>
-     
+        {/* -------bank--------> */}
         <div className='bank'>
-          <div className='bank-hover'>
-            <div className='vietinwhite'></div>
-          </div>
-          <div className='appendContent'>
-            <a href='/' target="_blank">
-              <div className='icon-append-container'>
-                <img src={iconchuyenkhoan}></img>
-              </div>
-              Chuyển khoản
-            </a>
-            <a href='/billing' target="_blank">
-              <div className='icon-append-container'>
-                <img src={iconthongke}></img>
-              </div>
-              Thống kê
-            </a>
-          </div>
+          <a href='/' target="_blank">
+            <div className='bank-hover'>
+              <div className='vietinwhite'></div>
+            </div>
+          </a>
         </div>
-
+        {/* -------bank--------> */}
         <div className='bank'>
-          <div className='bank-hover'>
-            <div className='bidvwhite'></div>
-          </div>
-          <div className='appendContent'>
-            <a href='https://autobanking789.web.app' target="_blank">
-              <div className='icon-append-container'>
-                <img src={iconchuyenkhoan}></img>
-              </div>
-              Chuyển khoản
-            </a>
-            <a href='https://autobanking789.web.app/billing' target="_blank">
-              <div className='icon-append-container'>
-                <img src={iconthongke}></img>
-              </div>
-              Thống kê
-            </a>
-          </div>
+          <a href='https://autobanking789.web.app' target="_blank">
+            <div className='bank-hover'>
+              <div className='bidvwhite'></div>
+            </div>
+          </a>
         </div>
-
+        {/* -------bank--------> */}
         <div className='bank'>
-          <div className='bank-hover'>
-            <a className='vcbwhite'></a>
-          </div>
-          <div className='appendContent'>
-            <a href='/' target="_blank">
-              <div className='icon-append-container'>
-                <img src={iconchuyenkhoan}></img>
-              </div>
-              Chuyển khoản
-            </a>
-            <a href='/' target="_blank">
-              <div className='icon-append-container'>
-                <img src={iconthongke}></img>
-              </div>
-              Thống kê
-            </a>
-          </div>
+          <a href='/' target="_blank">
+            <div className='bank-hover'>
+              <a className='vcbwhite'></a>
+            </div>
+          </a>
         </div>
+        {/* -------statistical--------> */}
+        <div className='statistical'>
+          <a href='/billing' target="_blank">
 
-        <div className='app-ver'>
-          <p>BETA 1.0.0</p>
-          <i>JUN88 AutoBanking, Reserved</i>
+            <img src={iconthongke}></img>&ensp;<span>Thống kê</span>
+          </a>
         </div>
+        <Version />
       </div>
     )
 }
@@ -135,25 +103,42 @@ waitForElm('.sidebar').then(()=>{
     localStorage.setItem('sideCollapse',"true")
   }
   if(localStorage.getItem('sideCollapse')=="true"){
-    document.getElementsByClassName('sidebar')[0].style.width='15%'
-    document.getElementsByClassName('header')[0].style.width='88%'
+    document.getElementsByClassName('sidebar')[0].style.marginLeft='0'
+    document.getElementsByClassName('toggle-btn')[0].style.marginLeft='15%'
+
+    document.getElementsByClassName('header')[0].style.width='85%'
+    document.getElementsByClassName('main_content')[0].style.width='85%'
+
     document.getElementsByClassName('toggle-btn')[0].style.transform='translate(0%) rotate(0)'
 
   }else{
-    document.getElementsByClassName('sidebar')[0].style.width='0%'
+    document.getElementsByClassName('sidebar')[0].style.marginLeft='-15%'
+    document.getElementsByClassName('toggle-btn')[0].style.marginLeft='0'
+
     document.getElementsByClassName('header')[0].style.width='100%'
+    document.getElementsByClassName('main_content')[0].style.width='100%'
+
     document.getElementsByClassName('toggle-btn')[0].style.transform='translate(50%) rotate(180deg)'
   }
   document.getElementsByClassName('toggle-btn')[0].addEventListener('click',function(){
     if(localStorage.getItem('sideCollapse')=="true"){
-      document.getElementsByClassName('sidebar')[0].style.width='0%'
-      document.getElementsByClassName('header')[0].style.width='100%'
-      document.getElementsByClassName('toggle-btn')[0].style.transform='translate(50%) rotate(180deg)'
+      document.getElementsByClassName('sidebar')[0].style.marginLeft='-15%'
+      document.getElementsByClassName('toggle-btn')[0].style.marginLeft='0'
 
+      document.getElementsByClassName('header')[0].style.width='100%'
+      document.getElementsByClassName('main_content')[0].style.width='100%'
+
+   
+      document.getElementsByClassName('toggle-btn')[0].style.transform='translate(50%) rotate(180deg)'
       localStorage.setItem('sideCollapse','false')
     }else{
-      document.getElementsByClassName('sidebar')[0].style.width='15%'
-      document.getElementsByClassName('header')[0].style.width='88%'
+      document.getElementsByClassName('sidebar')[0].style.marginLeft='0'
+      document.getElementsByClassName('toggle-btn')[0].style.marginLeft='15%'
+
+      document.getElementsByClassName('header')[0].style.width='85%'
+      document.getElementsByClassName('main_content')[0].style.width='85%'
+
+
       document.getElementsByClassName('toggle-btn')[0].style.transform='translate(0%) rotate(0)'
       localStorage.setItem('sideCollapse','true')
     }

@@ -97,7 +97,7 @@ html {
 }
 
 /* Information */
-.information {
+/* .information {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -149,7 +149,7 @@ html {
 
 .account {
     font-weight: 700;
-}
+} */
 
 /* Banner Vietinbank */
 .banner {
@@ -183,16 +183,5 @@ html {
     border: 0px solid transparent;
     background: url('../asset/media/images/icons/print.png');
     background-size: 100% 100%;
-    cursor: pointer;
-}
-
-#download-button{
-    width: 30px;
-    height: 30px;
-    background: url('../asset/media/images/icons/download.png');
-    background-size: 100% 100%;
-    position: absolute;
-    left: 30px;
-    border: 0px solid transparent;
     cursor: pointer;
 }

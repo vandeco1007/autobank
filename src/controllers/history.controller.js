@@ -1,4 +1,7 @@
 import authorize from "../middlewares/bo.authorize";
+import bidvBillPrint from "./bidvBillPrint";
+import vietinBillPrint from "./vietinBillPrint";
+
 const getHistory = (startTime, endTime, playerChoices, playerId, paginitions, limit)=>{
     let url = []
     let myHeaders = new Headers();
@@ -16,16 +19,16 @@ const getHistory = (startTime, endTime, playerChoices, playerId, paginitions, li
     };
 
     if(playerId==''){
-      url[0]='https://boapi.5589bet.com/789bet-ims/api/v1/withdrawals/search?&starttime='+startTime+'&endtime='+endTime+'&dl=false&exactmatch=true&limit=1000&offset='+paginitions+'&sort=DESC&sortcolumn=withdrawaltime&statusType=WITHDRAWAL_RECORD&statuslist=8&statuslist=14&withdrawaltypestr=BANK&timefilter=audittime&zoneType=ASIA_SHANGHAI&auditor='+localStorage.getItem('bouser')
+      url[0]='https://boapi.f8bet.cc/f8bet-ims/api/v1/withdrawals/search?&starttime='+startTime+'&endtime='+endTime+'&dl=false&exactmatch=true&limit=1000&offset='+paginitions+'&sort=DESC&sortcolumn=withdrawaltime&statusType=WITHDRAWAL_RECORD&statuslist=8&statuslist=14&withdrawaltypestr=BANK&timefilter=audittime&zoneType=ASIA_SHANGHAI&auditor='+localStorage.getItem('bouser')
     }
 
     
     if(playerId!=''){
       console.log(playerId)
       if(playerChoices=='playerId'){
-        url[0]='https://boapi.5589bet.com/789bet-ims/api/v1/withdrawals/search?dl=false&starttime='+startTime+'&endtime='+endTime+'&exactmatch=true&language=4&limit=100&offset='+paginitions+'&offset=0&sequence=0&sort=DESC&sortcolumn=withdrawaltime&statusType=WITHDRAWAL_RECORD&statuslist=8&statuslist=14&withdrawaltypestr=BANK&timefilter=audittime&zoneType=ASIA_SHANGHAI&playerid='+playerId
+        url[0]='https://boapi.f8bet.cc/f8bet-ims/api/v1/withdrawals/search?dl=false&starttime='+startTime+'&endtime='+endTime+'&exactmatch=true&language=4&limit=100&offset='+paginitions+'&offset=0&sequence=0&sort=DESC&sortcolumn=withdrawaltime&statusType=WITHDRAWAL_RECORD&statuslist=8&statuslist=14&withdrawaltypestr=BANK&timefilter=audittime&zoneType=ASIA_SHANGHAI&playerid='+playerId
       }else{
-        url[0]='https://boapi.5589bet.com/789bet-ims/api/v1/withdrawals/search?dl=false&starttime='+startTime+'&endtime='+endTime+'&exactmatch=true&language=4&limit=100&offset='+paginitions+'&sequence=0&sort=DESC&sortcolumn=withdrawaltime&statusType=WITHDRAWAL_RECORD&statuslist=8&statuslist=14&withdrawaltypestr=BANK&timefilter=audittime&zoneType=ASIA_SHANGHAI&withdrawid='+playerId
+        url[0]='https://boapi.f8bet.cc/f8bet-ims/api/v1/withdrawals/search?dl=false&starttime='+startTime+'&endtime='+endTime+'&exactmatch=true&language=4&limit=100&offset='+paginitions+'&sequence=0&sort=DESC&sortcolumn=withdrawaltime&statusType=WITHDRAWAL_RECORD&statuslist=8&statuslist=14&withdrawaltypestr=BANK&timefilter=audittime&zoneType=ASIA_SHANGHAI&withdrawid='+playerId
       }
     }
 
@@ -129,37 +132,11 @@ const getHistory = (startTime, endTime, playerChoices, playerId, paginitions, li
           trans.appendChild(transId)
           tableTr.appendChild(trans)
 
-          let day = ['Chủ Nhật','Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy',]
-          let billPrnt = document.querySelectorAll('.billPrinter')
-          let billingContent = document.getElementsByClassName('bill-wrapper')[0]
-          billPrnt.forEach((el)=>{
-            el.addEventListener('click',()=>{
-              let jsonpars = JSON.parse(el.getAttribute('data-id'))
-              let decriptions = document.getElementsByClassName('decriptions')[0]
-              let code = document.getElementsByClassName('code')[0]
-              let tdRight = document.getElementsByClassName('td-right')
-              let time = new Date(jsonpars.time)
-              let timeDisplay = document.getElementsByClassName('time')
-              console.log(jsonpars.time)
-              billingContent.style.opacity='1'
-              billingContent.style.zIndex='10'
-              code.textContent=jsonpars.transId.split(' ')[1]
-              timeDisplay[0].textContent=time.getDate()+"/"+(time.getMonth()+1)+"/"+time.getFullYear()+" "+time.getHours()+':'+time.getMinutes()
-              tdRight[0].textContent= "********"+localStorage.getItem('bankAccount').slice(-4)
-              tdRight[1].textContent=localStorage.getItem('bankUsername')
-              tdRight[2].textContent=jsonpars.bankAcc
-              tdRight[3].textContent=jsonpars.mess
-              tdRight[4].textContent=jsonpars.ammount.toLocaleString('en-US')
-              tdRight[5].textContent=jsonpars.mess
-              navigator.clipboard.writeText(jsonpars.playerId)
-              .then(() => {
-                  console.log("Text copied to clipboard...")
-              })
-                  .catch(err => {
-                  console.log('Something went wrong', err);
-              })
-            })
-          })
+          // Bill Printer
+          let transBank = String(element.approvereason).toLowerCase();
+          if(transBank.indexOf("bidv") == 0) {
+            bidvBillPrint();
+          }
         });
     }).catch(error => console.log('error', error));
 }

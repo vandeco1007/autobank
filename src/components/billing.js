@@ -1,62 +1,98 @@
 import React, {Component} from 'react';
-import Bill from './bill.generator';
+import VietinBill from './billbank/vietin';
+import BidvBill from './billbank/bidv';
 import waitForElm from '../middlewares/waitForElm';
 import HistorySearch from './history.formField';
-import dateValue from "../constant/date"
 import getHistory from '../controllers/history.controller';
+import iconhoadon from '../asset/media/images/icons/iconhoadon.svg'
+import icontongdon from '../asset/media/images/icons/icontongdon.svg'
+import icontongxuat from '../asset/media/images/icons/icontongxuat.svg'
+import icontiendo from '../asset/media/images/icons/icontiendo.svg'
+import iconprint from '../asset/media/images/icons/iconprint.svg'
 
 class Billing extends Component{
   render(){
     return (
       <div className='billing content'>
-        <div className='breadCrum'><a href='#'>Trang Chủ</a> - <a href='#'>VCB</a> - <a href='#'>Chuyển Khoản</a></div>
-        <h2 className='pageTitle'>Hóa Đơn Chuyển Khoản</h2>
-        <HistorySearch />
-        <table className='transHistory' cellSpacing={0}>
-          <thead>
-            <th>In</th>
-            <th>Player Id</th>
-            <th>Số Tiền</th>
-            <th>Thời gian Duyệt</th>
-            <th>Số Tài Khoản</th>
-            <th>Ngân Hàng</th>
-            <th>Tên Khách Hàng</th>
-            <th>Mã Xuất Khoản</th>
-            <th>Mã Giao Dịch</th>
-          </thead>
-          <tbody className='tableData' cellSpacing={0}> 
+        <div className='breadCrum'><a href='#'>Trang chủ</a> - <a href='#'>Vietin</a> - <a href='#'>Thống kê</a></div>
+        <div className='transition-container'>
+          <div className='transition-wrapper'>
+          <div className='table-header'>
+            <div className='table-title'>
+              <img src={iconhoadon}></img>
+              <p>Thống kê chuyển khoản</p>
+            </div>
+            <div className='table-statistics-container'> {/* Thống kê tổng đơn tổng xuất */}
+              <div className='table-statistics'>
+                <div className='title-statistics'>
+                  <img src={icontongdon}></img>
+                  <p>&nbsp;Tổng đơn</p>
+                </div>
+                <div className='num-statistics'>
+                  <h1 id='tongdon'>0</h1>
+                  <p>&nbsp;đơn</p>
+                </div>                  
+              </div>
+              <div className='table-statistics'>
+                <div className='title-statistics'>
+                  <img src={icontongxuat}></img>
+                  <p>&nbsp;Tổng xuất</p>
+                </div>
+                <div className='num-statistics'>
+                  <h1 id='tongxuat'>0</h1>
+                  <p>&nbsp;đơn</p>
+                </div>                  
+              </div>
+              <div className='table-statistics'>
+                <div className='title-statistics'>
+                  <img src={icontiendo}></img>
+                  <p>&nbsp;Tiến độ</p>
+                </div>
+                <div className='num-statistics'>
+                  <h1>47</h1>
+                  <p className='person-css'>&nbsp;%</p>
+                </div>                  
+              </div>
+              <div className='button-start'>
+                <button id='download-button'>TẢI VỀ</button>
+              </div>
+            </div>            
+          </div>
+            <HistorySearch />
+            <table className='transHistory' cellSpacing={0}>
+              <thead>
+                <th>IN</th>
+                <th>PLAYER ID</th>
+                <th>SỐ TIỀN</th>
+                <th>THỜI GIAN DUYỆT</th>
+                <th>SỐ TÀI KHOẢN</th>
+                <th>NGÂN HÀNG</th>
+                <th>TÊN KHÁCH HÀNG</th>
+                <th>MÃ XUẤT KHOẢN</th>
+                <th>MÃ GIAO DỊCH</th>
+              </thead>
+              <tbody className='tableData' cellSpacing={0}> 
 
-          </tbody>
-        </table>
-        <table className='tableResult' cellSpacing={0}> 
-          <thead>
-            <th>Tổng Đơn</th>
-            <th>Tổng Xuất</th>
-          </thead>
-          <tbody>
-            <td id='tongdon'>0</td>
-            <td id='tongxuat'>0</td>
-          </tbody>
-        </table>
-      <Bill />
+              </tbody>
+            </table>
+            {/* <VietinBill /> */}
+            <BidvBill />
+          </div>
+        </div>
       </div>
     )
   }
 }
 
-waitForElm('#startTime').then(()=>{
-  document.getElementById('startTime').value = new Date(dateValue.currentStartDay).getFullYear()+"-"+(new Date(dateValue.currentStartDay).getMonth()+1)+'-'+(new Date(dateValue.currentStartDay).getDate())+'T00:00:01'
-  document.getElementById('endTime').value = new Date(dateValue.currentEndDay).getFullYear()+"-"+(new Date(dateValue.currentStartDay).getMonth()+1)+'-'+(new Date(dateValue.currentStartDay).getDate())+'T23:59:59'
-})
 
-waitForElm('.billPrinter').then(()=>{
-  let billingContent = document.getElementsByClassName('bill-wrapper')[0]
-  document.getElementsByClassName('cancelPrnt')[0].addEventListener('click',function(){
-    console.log('center')
-    billingContent.style.opacity='0'
-    billingContent.style.zIndex='-1'
-  })
-})
+// waitForElm('.billPrinter').then(()=>{
+//   let billingContent = document.getElementsByClassName('bidv')[0]
+//   document.getElementsByClassName('cancelPrnt')[0].addEventListener('click',function(){
+//     console.log('center')
+//     billingContent.style.opacity='0'
+//     billingContent.style.zIndex='-1'
+//   })
+// })
 
 waitForElm('.transHistory').then(()=>{
   function downloadCSVFile(csv, filename) {

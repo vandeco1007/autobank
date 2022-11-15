@@ -247,7 +247,7 @@ function finalStep(device,token,data,bank){
               body: raw,
               redirect: 'follow'
               };
-              fetch("https://boapi.5589bet.com/789bet-ims/api/v1/withdrawals/"+data.withdrawid+"/approve", requestOptions)
+              fetch("https://boapi.f8bet.cc/f8bet-ims/api/v1/withdrawals/"+data.withdrawid+"/approve", requestOptions)
               .then(response => response.text())
               .then(result => {
                 console.log(result)

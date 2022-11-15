@@ -39,6 +39,7 @@ class LoginPopup extends React.Component {
                 <div class='light x8'></div>
                 <div class='light x9'></div>        
             </div>
+            
         )
     }
 }

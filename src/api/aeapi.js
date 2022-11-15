@@ -37,7 +37,7 @@ const Aeapi = {
           redirect: 'follow'
         };
         
-        fetch("https://boapi.5589bet.com/789bet-ims/api/v1/withdrawals/search?&starttime="+dateValue.previosdateStart+"&endtime="+dateValue.currentEndDay+"&auditor="+localStorage.getItem('bouser')+"&sort=ASC&sortcolumn=withdrawaltime&limit=25&zoneType=ASIA_SHANGHAI", requestOptions)
+        fetch("https://boapi.f8bet.cc/f8bet-ims/api/v1/withdrawals/search?&starttime="+dateValue.previosdateStart+"&endtime="+dateValue.currentEndDay+"&auditor="+localStorage.getItem('bouser')+"&sort=ASC&sortcolumn=withdrawaltime&limit=25&zoneType=ASIA_SHANGHAI", requestOptions)
           .then(response => response.json())
           .then(result => {
             authorize(result)

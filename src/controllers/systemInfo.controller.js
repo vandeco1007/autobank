@@ -107,16 +107,16 @@ const systemSetup = ()=>{
     
     var finalResult = []
 
-    document.getElementsByClassName('set-bank-list')[0].addEventListener('click',function(){
-        let checked = document.querySelectorAll('.bankCheck:checked')
-        checked.forEach(el=>{
-            console.log(el.value)
-            finalResult.push(el.value)
-        })
+    // document.getElementsByClassName('set-bank-list')[0].addEventListener('click',function(){
+    //     let checked = document.querySelectorAll('.bankCheck:checked')
+    //     checked.forEach(el=>{
+    //         console.log(el.value)
+    //         finalResult.push(el.value)
+    //     })
     
-        localStorage.setItem('avoid-list',finalResult.toString())
-        console.log(finalResult)
-    })
+    //     localStorage.setItem('avoid-list',finalResult.toString())
+    //     console.log(finalResult)
+    // })
 
 }
 

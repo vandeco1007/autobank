@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@200;300;400;500;600;700&family=Mulish:wght@200;300;400;500;600;700;800&display=swap');
+
+.bidv {
+    z-index: -1;
+    opacity: 0;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: fixed;
+    font-size: 16px;
+}
+
+.bidv-bill-wrapper {
+    background-image: url(../../asset/media/images/billing/bidv-bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 415px;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+}
+
+.bidv .phone-hour {
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: rgba(31, 31, 31, 0.75);
+    font-weight: 600;
+    font-size: 0.9em;
+    height: 28px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: 1px;
+    padding: 0 26px;
+}
+
+.bidv .information {
+    margin-top: 386px;
+    width: 320px;
+    text-align: center;
+    line-height: 32px;
+    font-size: 1.125em;
+    font-weight: 700;
+    color: rgba(20, 20, 20, 0.75);
+}
+
+.bidv-code {
+    bottom: 260px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    color: rgba(46, 46, 46, 0.555);
+}
+
+.bidv .css-td {
+    font-size: 1.1em;
+    color: #0a75a7;
+}
+
+.bidv .code-td-css {
+    font-size: 1.1em;
+    font-weight: 800;
+    color: rgba(0, 0, 0, 0.829);
+}
