@@ -1,5 +1,5 @@
 import authorize from "../middlewares/bo.authorize";
-import bidvBillPrint from "./bidvBillPrint";
+import bidvBillPrint from "./billPrint";
 import vietinBillPrint from "./vietinBillPrint";
 
 const getHistory = (startTime, endTime, playerChoices, playerId, paginitions, limit)=>{
@@ -131,12 +131,7 @@ const getHistory = (startTime, endTime, playerChoices, playerId, paginitions, li
           let transId = document.createTextNode(element.approvereason)
           trans.appendChild(transId)
           tableTr.appendChild(trans)
-
-          // Bill Printer
-          let transBank = String(element.approvereason).toLowerCase();
-          if(transBank.indexOf("bidv") == 0) {
-            bidvBillPrint();
-          }
+          
         });
     }).catch(error => console.log('error', error));
 }

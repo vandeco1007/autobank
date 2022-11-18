@@ -7,6 +7,7 @@
     left: 50%;
     transform: translateX(-50%);
     position: fixed;
+    transition: 0.2s;
     font-size: 16px;
 }
 
@@ -28,10 +29,12 @@
 }
 
 .vietin .time-code {
-    font-size: 0.75em;
-    font-weight: 600;
+    font-size: 0.8em;
+    font-weight: 500;
     color: #9FA7AA;
     font-family: 'Montserrat', sans-serif;
+    text-align: right;
+    letter-spacing: 0.5px;
 }
 
 .vietin .date {
@@ -57,12 +60,12 @@
     letter-spacing: 1px;
 }
 
-.info {
-    height: 54px;
+.vietin .info {
+    /* height: 54px; */
     line-height: 18px;
 }
 
-.left-info {
+.vietin .left-info {
     color: #a0a0a0;
     font-size: 0.95em;
     font-weight: 600;
@@ -72,7 +75,7 @@
     font-family: 'Mulish', sans-serif;
 }
 
-.right-info {
+.vietin .right-info {
     width: 70%;
     float: right;
     justify-content: right;
@@ -80,27 +83,41 @@
     font-weight: 600;
     font-size: 0.92em;
     font-family: 'Montserrat', sans-serif;
-
+    margin-bottom: 20px;
 }
 
-.right-info div{
+.vietin .right-info div{
     width: 100%;
 }
 
-.above-content {
-    justify-content: right;
-    display: flex;
+.vietin .above-content {
+    text-align: right;
 }
 
-.a-line {
+.vietin .below-content {
+    text-align: right;
+}
+
+.vietin .a-line {
     height: 38px;
 }
 
-.fee {
+.vietin .fee {
     color: #045A8B;
     font-weight: 700;
 }
 
-.account {
+.vietin .account {
     font-weight: 700;
+}
+
+.vietin .cancelPrnt {
+    top: -20px;
+    width: 500%;
+    height: 100vh;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
 }

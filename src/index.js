@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Sidebar from './components/sideBar';
+import Sidebar from './components/sideBar'
 import './style/style.css'
 import './style/bill.css'
 import Header from './components/header';

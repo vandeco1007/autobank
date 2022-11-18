@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
-import VietinBill from './billbank/vietin';
+import billControler from '../controllers/billController';
 import BidvBill from './billbank/bidv';
-import waitForElm from '../middlewares/waitForElm';
+import VietinBill from './billbank/vietin';
+import VcbBill from './billbank/vcb';
 import HistorySearch from './history.formField';
-import getHistory from '../controllers/history.controller';
 import iconhoadon from '../asset/media/images/icons/iconhoadon.svg'
 import icontongdon from '../asset/media/images/icons/icontongdon.svg'
 import icontongxuat from '../asset/media/images/icons/icontongxuat.svg'
 import icontiendo from '../asset/media/images/icons/icontiendo.svg'
 import iconprint from '../asset/media/images/icons/iconprint.svg'
+import billPrint from '../controllers/billPrint';
 
 class Billing extends Component{
   render(){
@@ -40,7 +41,7 @@ class Billing extends Component{
                 </div>
                 <div className='num-statistics'>
                   <h1 id='tongxuat'>0</h1>
-                  <p>&nbsp;đơn</p>
+                  <p>&nbsp;.000 đ</p>
                 </div>                  
               </div>
               <div className='table-statistics'>
@@ -72,11 +73,57 @@ class Billing extends Component{
                 <th>MÃ GIAO DỊCH</th>
               </thead>
               <tbody className='tableData' cellSpacing={0}> 
-
+                {/* <tr>
+                  <td>
+                    <button className='billPrinter' data-id='{"times":"20:01:53, 15/11/2022","withdrawid":"21fea8b0-d702-4272-8efb-7f50412a7152","playerId":"ceshi06","bankAcc":"66110002760502","bankName":"Vietin","bankaccountname":"MAI VAN TUNG","ammount":1000,"mess":"DANG NGUYEN VAN KHANG"}'></button>
+                  </td>
+                  <td>atung505</td>
+                  <td>1510000</td>
+                  <td>20:01:53, 15/11/2022</td>
+                  <td>03*******41</td>
+                  <td>Vietcombank</td>
+                  <td>TMA VAN TUNG</td>
+                  <td>ab56498651-54as1d6211-894999</td>
+                  <td>BIDV 08</td>
+                </tr>
+                <tr>
+                  <td>IN</td>
+                  <td>atung505</td>
+                  <td>1510000</td>
+                  <td>20:01:53, 15/11/2022</td>
+                  <td>03*******41</td>
+                  <td>Vietcombank</td>
+                  <td>TMA VAN TUNG</td>
+                  <td>ab56498651-54as1d6211-894999</td>
+                  <td>BIDV 08</td>
+                </tr>
+                <tr>
+                  <td>IN</td>
+                  <td>atung505</td>
+                  <td>1510000</td>
+                  <td>20:01:53, 15/11/2022</td>
+                  <td>03*******41</td>
+                  <td>Vietcombank</td>
+                  <td>TMA VAN TUNG</td>
+                  <td>ab56498651-54as1d6211-894999</td>
+                  <td>BIDV 08</td>
+                </tr>
+                <tr>
+                  <td>IN</td>
+                  <td>atung505</td>
+                  <td>1510000</td>
+                  <td>20:01:53, 15/11/2022</td>
+                  <td>03*******41</td>
+                  <td>Vietcombank</td>
+                  <td>TMA VAN TUNG</td>
+                  <td>ab56498651-54as1d6211-894999</td>
+                  <td>BIDV 08</td>
+                </tr> */}
               </tbody>
             </table>
-            {/* <VietinBill /> */}
+            <VietinBill />
             <BidvBill />
+            <VcbBill />
           </div>
         </div>
       </div>
@@ -84,57 +131,9 @@ class Billing extends Component{
   }
 }
 
+billControler(); //Function tắt bill, in bill, lịch sử, thống kê, ...
 
-// waitForElm('.billPrinter').then(()=>{
-//   let billingContent = document.getElementsByClassName('bidv')[0]
-//   document.getElementsByClassName('cancelPrnt')[0].addEventListener('click',function(){
-//     console.log('center')
-//     billingContent.style.opacity='0'
-//     billingContent.style.zIndex='-1'
-//   })
-// })
+billPrint(); //Function ra bill BIDV, Vietin, VCB
 
-waitForElm('.transHistory').then(()=>{
-  function downloadCSVFile(csv, filename) {
-    var csv_file, download_link;
-    csv_file = new Blob([csv], {type: "text/csv"});
-    download_link = document.createElement("a");
-    download_link.download = filename;
-    download_link.href = window.URL.createObjectURL(csv_file);
-    download_link.style.display = "none";
-    document.body.appendChild(download_link);
-    download_link.click();
-  }
-  document.getElementById("download-button").addEventListener("click", function () {
-    var html = document.getElementsByClassName("tableData")[0].outerHTML;
-    htmlToCSV(html, "TaiBieu.csv");
-  });
-
-  let submitForm = document.getElementById('historyFormSubmit')
-  submitForm.addEventListener('click', ()=>{
-    let starTime = document.getElementById('startTime').value
-    let endTime = document.getElementById('endTime').value
-    let playerChoices = document.getElementById('playerChoices').value
-    let player = document.getElementById('player').value
-    if(endTime!='' && starTime!=''){
-      getHistory(new Date(starTime).getTime(),new Date(endTime).getTime(),playerChoices,player,0)
-    }else{
-      alert('Vui lòng nhập ngày tháng')
-    }
-  })
-
-  function htmlToCSV(html, filename) {
-    var data = [];
-    var rows = document.querySelectorAll("table tr");					
-    for (var i = 0; i < rows.length; i++) {
-      var row = [], cols = rows[i].querySelectorAll("td, th");						
-      for (var j = 0; j < cols.length; j++) {
-        row.push(cols[j].innerText);
-      }
-      data.push(row.join(","));		
-    }
-    downloadCSVFile(data.join("\n"), filename);
-  }
-})
 
 export default Billing;

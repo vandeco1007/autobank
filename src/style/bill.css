@@ -49,13 +49,6 @@ html {
 }
 
 /* Head bill */
-.head-bill {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 120px;
-}
-
 
 .bg-vietin img {
     width: 500px;
@@ -152,36 +145,4 @@ html {
 } */
 
 /* Banner Vietinbank */
-.banner {
-    padding-top: 28px;
-}
 
-.banner img {
-    width: 414px;
-        border-radius: 10px;
-}
-
-.cancelPrnt{
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    right: -3%;
-    top: -2%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgba(245, 245, 245, 0.589);
-    cursor: pointer;
-}
-
-.billPrinter{
-    color: transparent;
-    width: 20px;
-    height: 20px;
-    border: 0px solid transparent;
-    background: url('../asset/media/images/icons/print.png');
-    background-size: 100% 100%;
-    cursor: pointer;
-}

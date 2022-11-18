@@ -37,29 +37,12 @@ const HistorySearch = function(){
                         <input type={'text'} id='auditor' placeholder='Mã số XNK'></input>
                     </div>
                 </div>
-
                 <button id="historyFormSubmit">
                     <img src={iconsearch}></img>
                 </button>
-
-                
             </div>
-
-
-            {/* <div className="history-form-container admin-extra">
-                <div className="form-group">
-                    <select id='filter' className="choices" disabled>
-                        <option value={'all'}>Toàn bộ đơn</option>
-                        <option value={'auto'}>Chỉ đơn tự động</option>
-                    </select>
-                </div>
-                <div className="form-group">
-                    <label>Mã số xnk</label>
-                    <input type={'text'} id='auditor'></input>
-                </div>
-            </div> */}
         </div>
     )
 }
 
-export default HistorySearch
+export default HistorySearch;

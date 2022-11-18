@@ -196,7 +196,6 @@
     transition: 0.5s;
     width: 15%;
     height: 100vh;
-    transition: 0.5s;
     position: fixed;
     overflow: hidden;
 }
@@ -259,6 +258,8 @@
     margin: 0px auto;
     text-align: center;
     line-height: 1.5em;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 300;
 }
 
 .bankInfo{
@@ -297,6 +298,9 @@
 
 .loginContent {
     line-height: 26px;
+    font-weight: 500 !important;
+    font-size: 1.2em !important;
+    letter-spacing: 1px;
 }
 
 .bankAccount-content{
@@ -637,7 +641,7 @@
 }
 
 .table-statistics {
-    width: 200px;
+    min-width: 180px;
     height: 100%;
 }
 
@@ -665,6 +669,7 @@
 .num-statistics p {
     color: #30D988;
     font-weight: 600;
+    width: 80px;
 }
 
 .person-css {
@@ -1059,28 +1064,14 @@
 } */ 
 
 /*Bill*/
-
-.cancelPrnt{
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    right: -3%;
-    top: -2%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    cursor: pointer;
-}
-
 .billPrinter{
     color: transparent;
     width: 20px;
     height: 20px;
     border: 0px solid transparent;
-    background: url('../asset/media/images/icons/print.png');
-    background-size: 100% 100%;
+    background: url('../asset/media/images/icons/iconprint.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
     cursor: pointer;
 }
 

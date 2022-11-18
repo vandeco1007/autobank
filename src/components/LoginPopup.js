@@ -43,5 +43,4 @@ class LoginPopup extends React.Component {
         )
     }
 }
-
 export default LoginPopup;

@@ -8,6 +8,7 @@
     transform: translateX(-50%);
     position: fixed;
     font-size: 16px;
+    transition: 0.2s;
 }
 
 .bidv-bill-wrapper {
@@ -40,9 +41,9 @@
     width: 320px;
     text-align: center;
     line-height: 32px;
-    font-size: 1.125em;
-    font-weight: 700;
-    color: rgba(20, 20, 20, 0.75);
+    font-size: 1.14em;
+    font-weight: 600;
+    color: rgba(20, 20, 20, 0.9);
 }
 
 .bidv-code {
@@ -54,12 +55,25 @@
 }
 
 .bidv .css-td {
-    font-size: 1.1em;
+    font-size: 1.08em;
     color: #0a75a7;
+    font-weight: 700;
+
 }
 
 .bidv .code-td-css {
     font-size: 1.1em;
     font-weight: 800;
     color: rgba(0, 0, 0, 0.829);
+}
+
+.bidv .cancelPrnt {
+    top: -20px;
+    width: 500%;
+    height: 100vh;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
 }
