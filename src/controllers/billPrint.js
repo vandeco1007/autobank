@@ -52,22 +52,18 @@ const billPrint = () => {
           getBidv[4].textContent=time.getDate()+"/"+(time.getMonth()+1)+"/"+time.getFullYear()+" "+twoHours+':'+twoMinutes+':'+time.getSeconds()
           getBidv[5].textContent=" " + jsonpars.mess
           getBidv[6].textContent=codeString.substr(7,6)
-          // getBidv[2].textContent=localStorage.getItem('bankUsername')
-
-          // getBidv[5].textContent= "********"+localStorage.getItem('bankAccount').slice(-4)
-          navigator.clipboard.writeText(jsonpars.playerId)
-          .then(() => {
-              console.log("Text copied to clipboard...")
-          })
-              .catch(err => {
-              console.log('Something went wrong', err);
-          })
-          console.log('Printed BIDV')
+          // navigator.clipboard.writeText(jsonpars.playerId)
+          // .then(() => {
+          //     console.log("Text copied to clipboard...")
+          // })
+          //     .catch(err => {
+          //     console.log('Something went wrong', err);
+          // })
+          // console.log('Printed BIDV')
         }
 
         // <--------------- In bill Vietin --------------->
         if(transBank.indexOf('vietin') == 0) {
-          let day = ['Chủ Nhật','Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy',]
 
           let billingContent = document.getElementsByClassName('vietin')[0]
           let jsonpars = JSON.parse(el.getAttribute('data-id'))
@@ -102,7 +98,6 @@ const billPrint = () => {
           }
           //--------------Num to text------------>
           var th = ['', 'Thousand', 'Million', 'Billion', 'Trillion'];
-
           var dg = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
           var tn = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Eineteen'];
           var tw = ['Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
@@ -121,7 +116,7 @@ const billPrint = () => {
               var n = s.split('');
             
               var str = '';
-              var str1 = ''; //i added another word called cent
+              var str1 = ''; 
               var sk = 0;
               for (var i = 0; i < x; i++) {
                   if ((x - i) % 3 == 2) {
@@ -146,9 +141,9 @@ const billPrint = () => {
               }
               if (x != s.length) {
                   
-                  str += 'And '; //i change the word point to and 
-                  str1 += 'Cents '; //i added another word called cent
-                  //for (var i = x + 1; i < y; i++) str += dg[n[i]] + ' ' ;
+                  str += 'And '; 
+                  str1 += 'Cents '; 
+
               var j=startpos;
               
               for (var i = j; i < fulllength; i++) {
@@ -177,18 +172,17 @@ const billPrint = () => {
               }
               }
             var result=str.replace(/\s+/g, ' ') + str1;
-              //return str.replace(/\s+/g, ' ');
-            // ('.res').text(result);
-              return result; //i added the word cent to the last part of the return value to get desired output
+              
+              return result; 
             
           }
           //----------------------------------------------
           dateDisplay.textContent = time.getDate() + "/" + (time.getMonth()+1) + "/" + time.getFullYear()
           timeDisplay.textContent = twoHours + ':' + twoMinutes
           // getVietin[0].textContent = twoHours + ':' + twoMinutes;
-          getVietin[0].textContent = codeString.substr(4,9) + "ABEjuj"
+          getVietin[0].textContent = codeString.substr(4,9) + "ABEjuj" //Sửa lại mã trên bill
           getVietin[1].textContent = "********" + localStorage.getItem('bankAccount').slice(-4)
-          getVietin[2].textContent = localStorage.getItem('bankUsername') + "Tao Nè"
+          getVietin[2].textContent = localStorage.getItem('bankUsername') //đang là null
           getVietin[3].textContent = jsonpars.bankAcc
           getVietin[4].textContent = jsonpars.mess
           getVietin[5].textContent = jsonpars.bankName
@@ -203,6 +197,7 @@ const billPrint = () => {
         //<--------------- In bill Vietcombank --------------->
         if(transBank.indexOf('vcb') == 0) {
 
+          let day = ['Chủ Nhật','Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy',]
           let billingContent = document.getElementsByClassName('vcb')[0]
           let jsonpars = JSON.parse(el.getAttribute('data-id'))
           let decriptions = document.getElementsByClassName('decriptions')[0]
@@ -232,63 +227,19 @@ const billPrint = () => {
           }
 
           code.textContent=jsonpars.transId.split(' ')[1]
-          timeDisplay[0].textContent=twoHours+':'+twoMinutes + time.getDay() + time.getDate()+"/"+(time.getMonth()+1)+"/"+time.getFullYear()
-          getVcb[0].textContent=jsonpars.ammount.toLocaleString('en-US')
-          getVcb[1].textContent=twoHours+':'+twoMinutes+ time.getDay() + time.getDate()+"/"+(time.getMonth()+1)+"/"+time.getFullYear()
-          getVcb[2].textContent=jsonpars.mess
-          getVcb[3].textContent=jsonpars.bankAcc
-          getVcb[4].textContent=jsonpars.bankName
-          getVcb[5].textContent=codeString.substr(6,7)
-          getVcb[6].textContent=jsonpars.mess
-
+          getVcb[0].textContent=twoHours+':'+twoMinutes
+          getVcb[1].textContent=jsonpars.ammount.toLocaleString('en-US') + " VND"
+          getVcb[2].textContent=twoHours+':'+twoMinutes + " " + day[time.getDay()] + " " + time.getDate()+"/"+(time.getMonth()+1)+"/"+time.getFullYear()
+          getVcb[3].textContent=jsonpars.mess
+          getVcb[4].textContent=jsonpars.bankAcc
+          getVcb[5].textContent=jsonpars.bankName
+          getVcb[6].textContent=codeString.substr(6,7)
+          getVcb[7].textContent=jsonpars.mess
         }
 
       })
     })
   })
-
-    // let day = ['Chủ Nhật','Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy',]
-    // let billPrnt = document.querySelectorAll('.billPrinter')
-    // let billingContent = document.getElementsByClassName('bidv')[0]
-
-    // billPrnt.forEach((el)=>{
-    //   el.addEventListener('click',()=>{
-    //     let jsonpars = JSON.parse(el.getAttribute('data-id'))
-    //     let decriptions = document.getElementsByClassName('decriptions')[0]
-    //     let code = document.getElementsByClassName('code')[0]
-    //     let getBidv = document.getElementsByClassName('get-bidv')
-
-    //     let time = new Date(jsonpars.time)
-    //     let codeString = String(jsonpars.time)
-    //     // let timeDisplay = document.getElementsByClassName('time')
-
-    //     console.log('Số tiền: ' + jsonpars.ammount.toLocaleString('en-US') + ' đến tài khoản: ' + jsonpars.bankAcc)
-
-    //     billingContent.style.opacity='1'
-    //     billingContent.style.zIndex='10'      
-
-    //     code.textContent=jsonpars.transId.split(' ')[1]
-    //     // timeDisplay[0].textContent=time.getDate()+"/"+(time.getMonth()+1)+"/"+time.getFullYear()+" "+time.getHours()+':'+time.getMinutes()
-    //     getBidv[0].textContent = jsonpars.ammount.toLocaleString('en-US') + " VND ";
-    //     getBidv[1].textContent=jsonpars.bankAcc
-    //     getBidv[2].textContent=" " + jsonpars.mess
-    //     getBidv[3].textContent=" " + jsonpars.bankName + " "
-    //     getBidv[4].textContent=time.getDate()+"/"+(time.getMonth()+1)+"/"+time.getFullYear()+" "+time.getHours()+':'+time.getMinutes()+':'+time.getSeconds()
-    //     getBidv[5].textContent=" " + jsonpars.mess
-    //     getBidv[6].textContent=codeString.substr(7,6)
-    //     // getBidv[2].textContent=localStorage.getItem('bankUsername')
-
-    //     // getBidv[5].textContent= "********"+localStorage.getItem('bankAccount').slice(-4)
-    //     navigator.clipboard.writeText(jsonpars.playerId)
-    //     .then(() => {
-    //         console.log("Text copied to clipboard...")
-    //     })
-    //         .catch(err => {
-    //         console.log('Something went wrong', err);
-    //     })
-    //   })
-    // })
-
     
 }
 

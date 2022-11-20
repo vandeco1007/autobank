@@ -7,10 +7,10 @@ const VcbBill = () => {
         <div className="vcb vcb-bill-container">
             <div className='cancelPrnt'>x</div>
             <div className="vcb-bill-wrapper">
-                <span className="hour">15:00</span>
+                <span className="hour get-vcb">15:00</span>
                 <div className="head-bill">
-                    <span className="money">999,888,000 VND</span>
-                    <span className="date">15:00 Thứ Ba 25/10/2022</span>
+                    <span className="money get-vcb">999,888,000 VND</span>
+                    <span className="date get-vcb">15:00 Thứ Ba 25/10/2022</span>
                 </div>
                 <div className="information">
                     <div className="info">

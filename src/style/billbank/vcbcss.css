@@ -77,9 +77,9 @@
 }
 
 .vcb .right-info {
-    color: white;
+    color: rgba(255, 255, 255, 0.95);
     font-size: 1.07em;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.5px;
     text-align: right;
     line-height: 22px;
