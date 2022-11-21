@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@200;300;400;500;600;700&family=Mulish:wght@200;300;400;500;600;700&display=swap');
+
+.vietin {
+    z-index: -1;
+    opacity: 0;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: fixed;
+    transition: 0.2s;
+    font-size: 16px;
+}
+
+.vietin-bill-wrapper {
+    background-image: url(../../asset/media/images/billing/vietin-bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 415px;
+    height: 900px;
+    padding: 0 26px;
+}
+
+.vietin .head-bill {
+    display: flex;
+    justify-content:flex-end;
+    align-items:flex-end;
+    height: 139px;
+
+}
+
+.vietin .time-code {
+    font-size: 0.8em;
+    font-weight: 500;
+    color: #9FA7AA;
+    font-family: 'Montserrat', sans-serif;
+    text-align: right;
+    letter-spacing: 0.5px;
+}
+
+.vietin .date {
+    letter-spacing: 0.5px;
+}
+
+/* Infomation */
+.vietin .information {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 112px;
+}
+
+.vietin .phone-hour {
+    font-family: 'Mulish', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    font-size: 1.05em;
+    height: 38px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: 1px;
+}
+
+.vietin .info {
+    /* height: 54px; */
+    line-height: 18px;
+}
+
+.vietin .left-info {
+    color: #a0a0a0;
+    font-size: 0.95em;
+    font-weight: 600;
+    display: inline-block;
+    text-align: left;
+    width: 30%;
+    font-family: 'Mulish', sans-serif;
+}
+
+.vietin .right-info {
+    width: 70%;
+    float: right;
+    justify-content: right;
+    color: #092d4ddc;
+    font-weight: 600;
+    font-size: 0.92em;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+}
+
+.vietin .right-info div{
+    width: 100%;
+}
+
+.vietin .above-content {
+    text-align: right;
+}
+
+.vietin .below-content {
+    text-align: right;
+}
+
+.vietin .a-line {
+    height: 38px;
+}
+
+.vietin .fee {
+    color: #045A8B;
+    font-weight: 700;
+}
+
+.vietin .account {
+    font-weight: 700;
+}
+
+.vietin .cancelPrnt {
+    top: -20px;
+    width: 500%;
+    height: 100vh;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+}

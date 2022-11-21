@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@200;300;400;500;600;700&family=Mulish:wght@200;300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+.vcb {
+    z-index: -1;
+    opacity: 0;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: fixed;
+    font-size: 16px;
+    transition: 0.2s;
+    font-family: 'Roboto', sans-serif;
+}
+
+.vcb-bill-wrapper {
+    background-image: url(../../asset/media/images/billing/vcb-bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 415px;
+    height: 900px;
+    padding: 0 16px;
+}
+
+.vcb .head-bill {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 308px;
+    line-height: 30px;
+}
+
+.vcb .hour {
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: flex-end;
+    height: 36px;
+    letter-spacing: 1px;
+    margin-left: 14px;
+}
+
+.vcb .money {
+    color: #73BF01;
+    font-size: 1.7em;
+    letter-spacing: 0.3px;
+    font-weight: 500;
+}
+
+.vcb .date {
+    color: #889094cc;
+    font-size: 0.9em;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.vcb .information {
+    margin-top: 30px;
+}
+
+.vcb .info {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #4E595E;
+}
+
+.vcb .info div {
+    width: 50%;
+}
+
+.vcb .left-info {
+    color: #c3c7c9f5;
+    font-size: 1.07em;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+.vcb .right-info {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.07em;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-align: right;
+    line-height: 22px;
+    margin: 18px 0;
+}
+
+.vcb .cancelPrnt {
+    top: -20px;
+    width: 500%;
+    height: 100vh;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.vcb .toggle {
+    margin: 24px 0;
+}
+
+.transfer-vcb {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.transfer-vcb img {
+    width: 30%;
+}
